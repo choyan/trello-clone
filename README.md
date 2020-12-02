@@ -7,6 +7,8 @@ This packaged is bootstrapped with
  - Prettier
  - Zustand
  - Husky
+ - React Hook Form
+ - Yup
 
 # Installation
 Follow the simple instruction
