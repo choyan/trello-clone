@@ -1,10 +1,17 @@
 # cra4-tailwind
-This packaged is bootstrapped with Create React App, TailwindCSS, Husky, Prettier and Zustand
+This packaged is bootstrapped with 
+ - Create React App
+ - TailwindCSS
+ - React Router
+ - Axios
+ - Prettier
+ - Zustand
+ - Husky
 
 # Installation
 Follow the simple instruction
 ```
-git clone https://github.com/choyan/cra-tailwind-ts.git
+git clone https://github.com/choyan/cra4-tailwind.git
 yarn
 ```
 
