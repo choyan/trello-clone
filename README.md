@@ -1,4 +1,4 @@
-# cra4-tailwind
+# React Tailwind Starter
 This packaged is bootstrapped with 
  - Create React App
  - TailwindCSS
@@ -13,7 +13,7 @@ This packaged is bootstrapped with
 # Installation
 Follow the simple instruction
 ```
-git clone https://github.com/choyan/cra4-tailwind.git
+git clone http://gitlab.makdos.biz/makdos/react-tailwind-starter.git
 yarn
 ```
 
