@@ -1,26 +1,20 @@
 {
-  "name": "cra4-tailwind",
+  "name": "myhammer-challenge",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.2",
-    "@headlessui/react": "^1.2.0",
-    "@hookform/resolvers": "^2.5.1",
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "axios": "^0.21.0",
     "dayjs": "^1.10.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-hook-form": "^7.6.7",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4",
-    "yup": "^0.32.9",
-    "zustand": "^3.5.1"
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "craco start",
