@@ -1,9 +1,10 @@
 import { Modal } from 'shared';
 import { useState } from 'react';
+import { ModalColumnAdd } from '../index';
 
 export default function TopBar() {
   const [modalCreateColumnIsOpen, setModalCreateColumnIsOpen] = useState(false);
-  const changeModalCreateColumnState = () => setModalCreateColumnIsOpen(!modalCreateColumnIsOpen);
+  const changeModalCreateColumnState = (state) => setModalCreateColumnIsOpen(state);
 
   return (
     <div className="py-4 bg-blue-500 text-white">
@@ -21,7 +22,7 @@ export default function TopBar() {
           </svg>
         </div>
         <div>
-          <div className="flex cursor-pointer" onClick={changeModalCreateColumnState}>
+          <div className="flex cursor-pointer" onClick={() => changeModalCreateColumnState(true)}>
             <svg
               className="fill-current text-white"
               xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +38,9 @@ export default function TopBar() {
         </div>
       </div>
 
-      <Modal open={modalCreateColumnIsOpen}>sdsd</Modal>
+      <Modal open={modalCreateColumnIsOpen}>
+        <ModalColumnAdd changeModalCreateColumnState={changeModalCreateColumnState} />
+      </Modal>
     </div>
   );
 }
