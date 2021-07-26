@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^6.1.2",
-    "@tailwindcss/forms": "^0.3.2",
+    "@craco/craco": "^6.2.0",
+    "@tailwindcss/forms": "0.3.3",
     "@tailwindcss/typography": "^0.4.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "dayjs": "^1.10.6",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -45,7 +46,7 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.5.2",
     "postcss": "^7",
-    "prettier": "^2.2.1",
+    "prettier": "2.3.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "lint-staged": {
