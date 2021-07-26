@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { ColumnContext } from 'App';
+import { ColumnContext } from 'context';
 
 export default function ModalColumnEdit({ changeModalEditColumnState, columnData }) {
   const [columnName, setColumnName] = useState(columnData.name);

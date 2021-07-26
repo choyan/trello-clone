@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { ColumnContext } from 'App';
+import { ColumnContext } from 'context';
 import { useContext } from 'react';
 
 export default function Card({ cardData, deleteCard }) {

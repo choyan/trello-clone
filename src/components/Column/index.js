@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import { ColumnContext } from 'App';
+import { ColumnContext } from 'context';
 import { Card, ModalCardAdd, ModalColumnEdit } from '../index';
 import { Modal } from 'shared';
 
-export default function Column({ columnData, cards }) {
+export default function Column({ columnData }) {
   const columnContext = useContext(ColumnContext);
   const [modalEditColumnIsOpen, setModalEditColumnIsOpen] = useState(false);
   const [modalAddCardIsOpen, setModalAddCardIsOpen] = useState(false);

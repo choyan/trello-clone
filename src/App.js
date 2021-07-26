@@ -1,8 +1,8 @@
-import { createContext, useReducer } from 'react';
+import { useReducer } from 'react';
 import { Column, MoveCard, TopBar } from 'components';
 import { reducer } from './reducer';
+import { ColumnContext } from 'context';
 
-export const ColumnContext = createContext();
 const initialState = {
   columns: [
     {

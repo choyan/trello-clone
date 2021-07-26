@@ -1,5 +1,5 @@
-import { ColumnContext } from 'App';
 import { useContext } from 'react';
+import { ColumnContext } from 'context';
 
 export default function MoveCard() {
   const columnContext = useContext(ColumnContext);
@@ -19,7 +19,7 @@ export default function MoveCard() {
     <div className="my-4">
       {columnContext.data.selectedCard?.id && (
         <div>
-          <div>
+          <div className="w-80">
             <label htmlFor="column" className="block text-sm font-medium text-gray-700">
               Choose a Column to move
             </label>
