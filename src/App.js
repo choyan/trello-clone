@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-import { Column, TopBar } from 'components';
+import { Column, MoveCard, TopBar } from 'components';
 import upsert from './utils/upsert';
 
 export const ColumnContext = createContext();
@@ -68,6 +68,7 @@ const initialState = {
       date: 'Mon Jul 28 2021 11:31:42 GMT+0300 (GMT+03:00)',
     },
   ],
+  selectedCard: {},
 };
 
 const reducer = (state, action) => {
@@ -89,6 +90,17 @@ const reducer = (state, action) => {
       return { ...state, cards: [...state.cards, action.data] };
     case 'cardDelete':
       return { ...state, cards: state.cards.filter((card) => card.id !== action.id) };
+    case 'cardEdit':
+      // console.log(action.data);
+      upsert(state.cards, action.data);
+      return {
+        ...state,
+      };
+    case 'changeSelectedCard':
+      return {
+        ...state,
+        selectedCard: action.data,
+      };
     default:
       return state;
   }
@@ -101,6 +113,9 @@ export default function App() {
     <ColumnContext.Provider value={{ data: data, dataDispatch: dispatch }}>
       <div className="bg-home-bg bg-cover h-screen w-full">
         <TopBar />
+
+        <MoveCard />
+
         <div className="container flex mx-auto gap-x-12 mt-8">
           {data.columns.map((column) => (
             <Column columnData={column} key={column.id} />

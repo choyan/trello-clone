@@ -1,8 +1,23 @@
 import dayjs from 'dayjs';
+import { ColumnContext } from 'App';
+import { useContext } from 'react';
 
 export default function Card({ cardData, deleteCard }) {
+  const columnContext = useContext(ColumnContext);
+  const selectCard = (data) => {
+    columnContext.dataDispatch({
+      type: 'changeSelectedCard',
+      data,
+    });
+  };
+
   return (
-    <div className="bg-white rounded-sm px-2.5 py-1.5 mb-2.5 flex items-center justify-between cursor-pointer">
+    <div
+      className={`bg-white rounded-sm px-2.5 py-1.5 mb-2.5 flex items-center justify-between cursor-pointer ${
+        columnContext.data.selectedCard.id === cardData.id && 'border-2 border-blue-500'
+      }`}
+      onClick={() => selectCard(cardData)}
+    >
       <div>
         <div>{cardData.name}</div>
         <div className="mt-2 text-gray-400 text-sm">{dayjs(cardData.date).format('MMMM D')}</div>
