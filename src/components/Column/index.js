@@ -65,7 +65,7 @@ export default function Column({ columnData }) {
 
       <div className="mt-8">
         {columnCards.map((card) => (
-          <Card cardData={card} />
+          <Card cardData={card} key={card.id} />
         ))}
       </div>
 

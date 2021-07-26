@@ -33,7 +33,9 @@ export default function MoveCard() {
                 Choose a column
               </option>
               {columnContext.data.columns.map((column) => (
-                <option value={column.id}>{column.name}</option>
+                <option value={column.id} key={column.id}>
+                  {column.name}
+                </option>
               ))}
             </select>
           </div>
