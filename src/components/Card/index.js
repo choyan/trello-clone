@@ -2,13 +2,13 @@ import dayjs from 'dayjs';
 
 export default function Card({ cardData, deleteCard }) {
   return (
-    <div className="bg-white rounded-sm px-2.5 py-1.5 mb-2.5 flex items-center justify-between">
+    <div className="bg-white rounded-sm px-2.5 py-1.5 mb-2.5 flex items-center justify-between cursor-pointer">
       <div>
         <div>{cardData.name}</div>
         <div className="mt-2 text-gray-400 text-sm">{dayjs(cardData.date).format('MMMM D')}</div>
       </div>
 
-      <div className="cursor-pointer" onClick={() => deleteCard(cardData.name)}>
+      <div className="cursor-pointer" onClick={() => deleteCard(cardData.id)}>
         <svg
           className="fill-current text-sm"
           xmlns="http://www.w3.org/2000/svg"

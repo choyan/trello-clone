@@ -20,41 +20,49 @@ const initialState = {
   ],
   cards: [
     {
+      id: 1,
       name: 'Train Staff on POS',
       column: 1,
       date: 'Mon Jul 28 2021 11:31:42 GMT+0300 (GMT+03:00)',
     },
     {
+      id: 2,
       name: 'Staffing Schedule',
       column: 1,
       date: 'Mon Jul 28 2021 11:31:42 GMT+0300 (GMT+03:00)',
     },
     {
+      id: 3,
       name: 'Finalize the Menu',
       column: 1,
       date: 'Mon Jul 28 2021 11:31:42 GMT+0300 (GMT+03:00)',
     },
     {
+      id: 4,
       name: 'Truck Signage',
       column: 2,
       date: 'Mon Jul 28 2021 11:31:42 GMT+0300 (GMT+03:00)',
     },
     {
+      id: 5,
       name: 'Menu Testing',
       column: 2,
       date: 'Mon Jul 28 2021 11:31:42 GMT+0300 (GMT+03:00)',
     },
     {
+      id: 6,
       name: 'Brooklyn Lunch',
       column: 2,
       date: 'Mon Jul 28 2021 11:31:42 GMT+0300 (GMT+03:00)',
     },
     {
+      id: 7,
       name: 'File Permit Paperwork',
       column: 3,
       date: 'Mon Jul 28 2021 11:31:42 GMT+0300 (GMT+03:00)',
     },
     {
+      id: 8,
       name: 'Finalize Insurance',
       column: 3,
       date: 'Mon Jul 28 2021 11:31:42 GMT+0300 (GMT+03:00)',
@@ -67,12 +75,20 @@ const reducer = (state, action) => {
     case 'columnAdd':
       return { ...state, columns: [...state.columns, action.data] };
     case 'columnDelete':
-      return { ...state, columns: state.columns.filter((column) => column.id !== action.id) };
+      return {
+        ...state,
+        columns: state.columns.filter((column) => column.id !== action.id),
+        cards: state.cards.filter((card) => card.column !== action.id),
+      };
     case 'columnEdit':
       upsert(state.columns, action.data);
       return {
         ...state,
       };
+    case 'cardAdd':
+      return { ...state, cards: [...state.cards, action.data] };
+    case 'cardDelete':
+      return { ...state, cards: state.cards.filter((card) => card.id !== action.id) };
     default:
       return state;
   }
@@ -87,13 +103,7 @@ export default function App() {
         <TopBar />
         <div className="container flex mx-auto gap-x-12 mt-8">
           {data.columns.map((column) => (
-            <Column
-              columnData={column}
-              // deleteColumn={deleteColumn}
-              key={column.id}
-              // cards={cards}
-              // deleteCard={deleteCard}
-            />
+            <Column columnData={column} key={column.id} />
           ))}
         </div>
       </div>
