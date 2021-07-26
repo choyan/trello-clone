@@ -1,4 +1,10 @@
+import { Modal } from 'shared';
+import { useState } from 'react';
+
 export default function TopBar() {
+  const [modalCreateColumnIsOpen, setModalCreateColumnIsOpen] = useState(false);
+  const changeModalCreateColumnState = () => setModalCreateColumnIsOpen(!modalCreateColumnIsOpen);
+
   return (
     <div className="py-4 bg-blue-500 text-white">
       <div className="container mx-auto flex justify-between items-center">
@@ -15,7 +21,7 @@ export default function TopBar() {
           </svg>
         </div>
         <div>
-          <div className="flex">
+          <div className="flex cursor-pointer" onClick={changeModalCreateColumnState}>
             <svg
               className="fill-current text-white"
               xmlns="http://www.w3.org/2000/svg"
@@ -30,6 +36,8 @@ export default function TopBar() {
           </div>
         </div>
       </div>
+
+      <Modal open={modalCreateColumnIsOpen}>sdsd</Modal>
     </div>
   );
 }

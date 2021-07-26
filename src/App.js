@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { Card, Column, TopBar } from 'shared';
+import { Column, TopBar } from 'components';
 
 export default function App() {
-  const [modalCreateColumnIsOpen, setModalCreateColumnIsOpen] = useState(false);
-  const changeModalCreateColumnState = () => setModalCreateColumnIsOpen(!modalCreateColumnIsOpen);
   const [columns, setColumns] = useState([
     {
       name: 'Ongoing',
