@@ -1,9 +1,13 @@
 import dayjs from 'dayjs';
 import { ColumnContext } from 'context';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import { ModalCardEdit } from '../index';
+import { Modal } from 'shared';
 
 export default function Card({ cardData }) {
   const columnContext = useContext(ColumnContext);
+  const [modalEditCardIsOpen, setModalEditCardIsOpen] = useState(false);
+  const changeModalEditCardState = (state) => setModalEditCardIsOpen(state);
 
   const deleteCard = (id) => {
     columnContext.dataDispatch({
@@ -11,6 +15,7 @@ export default function Card({ cardData }) {
       id,
     });
   };
+
   const selectCard = (data) => {
     columnContext.dataDispatch({
       type: 'changeSelectedCard',
@@ -31,7 +36,7 @@ export default function Card({ cardData }) {
       </div>
 
       <div className="flex gap-x-2 items-center">
-        <div className="cursor-pointer" onClick={() => deleteCard(cardData.id)}>
+        <div className="cursor-pointer" onClick={() => changeModalEditCardState(true)}>
           <svg
             className="fill-current text-sm text-yellow-400"
             xmlns="http://www.w3.org/2000/svg"
@@ -57,6 +62,10 @@ export default function Card({ cardData }) {
           </svg>
         </div>
       </div>
+
+      <Modal open={modalEditCardIsOpen}>
+        <ModalCardEdit changeModalEditCardState={changeModalEditCardState} cardData={cardData} />
+      </Modal>
     </div>
   );
 }

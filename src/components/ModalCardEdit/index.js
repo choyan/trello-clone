@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { ColumnContext } from 'context';
 
-export default function ModalCardAdd({ changeModalAddCardState, columnId }) {
+export default function ModalCardEdit({ changeModalEditCardState, cardData }) {
   const [cardName, setCardName] = useState('');
   const columnContext = useContext(ColumnContext);
 
@@ -9,25 +9,24 @@ export default function ModalCardAdd({ changeModalAddCardState, columnId }) {
     setCardName(e.target.value);
   };
 
-  const saveColumn = () => {
+  const updateCard = () => {
     columnContext.dataDispatch({
-      type: 'cardAdd',
+      type: 'cardEdit',
       data: {
-        id: Date.now(),
-        column: columnId,
+        ...cardData,
         name: cardName,
         date: Date.now(),
       },
     });
     setCardName('');
-    changeModalAddCardState(false);
+    changeModalEditCardState(false);
   };
 
   return (
     <div className="relative px-6 py-8 text-gray-900">
       <div
         className="absolute top-2 right-2 cursor-pointer"
-        onClick={() => changeModalAddCardState(false)}
+        onClick={() => changeModalEditCardState(false)}
       >
         <svg
           className="fill-current"
@@ -51,7 +50,7 @@ export default function ModalCardAdd({ changeModalAddCardState, columnId }) {
             id="name"
             name="name"
             type="text"
-            value={cardName}
+            defaultValue={cardData.name}
             onChange={changeCardName}
           />
         </div>
@@ -61,7 +60,7 @@ export default function ModalCardAdd({ changeModalAddCardState, columnId }) {
         <button
           className="px-2.5 py-1.5 mt-2 bg-blue-500 text-white rounded-md"
           type="submit"
-          onClick={saveColumn}
+          onClick={updateCard}
         >
           Save Card
         </button>
