@@ -1,4 +1,4 @@
-import { ColumnContext } from '../../App';
+import { ColumnContext } from 'App';
 import { useContext } from 'react';
 
 export default function MoveCard() {

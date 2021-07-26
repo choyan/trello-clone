@@ -1,6 +1,6 @@
 import { createContext, useReducer } from 'react';
 import { Column, MoveCard, TopBar } from 'components';
-import upsert from './utils/upsert';
+import { reducer } from './reducer';
 
 export const ColumnContext = createContext();
 const initialState = {
@@ -69,41 +69,6 @@ const initialState = {
     },
   ],
   selectedCard: {},
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'columnAdd':
-      return { ...state, columns: [...state.columns, action.data] };
-    case 'columnDelete':
-      return {
-        ...state,
-        columns: state.columns.filter((column) => column.id !== action.id),
-        cards: state.cards.filter((card) => card.column !== action.id),
-      };
-    case 'columnEdit':
-      upsert(state.columns, action.data);
-      return {
-        ...state,
-      };
-    case 'cardAdd':
-      return { ...state, cards: [...state.cards, action.data] };
-    case 'cardDelete':
-      return { ...state, cards: state.cards.filter((card) => card.id !== action.id) };
-    case 'cardEdit':
-      // console.log(action.data);
-      upsert(state.cards, action.data);
-      return {
-        ...state,
-      };
-    case 'changeSelectedCard':
-      return {
-        ...state,
-        selectedCard: action.data,
-      };
-    default:
-      return state;
-  }
 };
 
 export default function App() {
