@@ -1,4 +1,4 @@
-import upsert from '../utils/upsert';
+import upsert from 'utils/upsert';
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -18,7 +18,11 @@ export const reducer = (state, action) => {
     case 'cardAdd':
       return { ...state, cards: [...state.cards, action.data] };
     case 'cardDelete':
-      return { ...state, cards: state.cards.filter((card) => card.id !== action.id) };
+      return {
+        ...state,
+        cards: state.cards.filter((card) => card.id !== action.id),
+        selectedCard: {},
+      };
     case 'cardEdit':
       upsert(state.cards, action.data);
       return {

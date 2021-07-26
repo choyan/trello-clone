@@ -2,8 +2,15 @@ import dayjs from 'dayjs';
 import { ColumnContext } from 'context';
 import { useContext } from 'react';
 
-export default function Card({ cardData, deleteCard }) {
+export default function Card({ cardData }) {
   const columnContext = useContext(ColumnContext);
+
+  const deleteCard = (id) => {
+    columnContext.dataDispatch({
+      type: 'cardDelete',
+      id,
+    });
+  };
   const selectCard = (data) => {
     columnContext.dataDispatch({
       type: 'changeSelectedCard',

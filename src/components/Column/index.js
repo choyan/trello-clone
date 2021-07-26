@@ -18,14 +18,6 @@ export default function Column({ columnData }) {
     });
   };
 
-  const deleteCard = (id) => {
-    console.log(id);
-    columnContext.dataDispatch({
-      type: 'cardDelete',
-      id,
-    });
-  };
-
   useEffect(() => {
     setColumnCards(columnContext.data.cards.filter((card) => card.column === columnData.id));
   }, [columnContext.data]);
@@ -71,6 +63,12 @@ export default function Column({ columnData }) {
         </div>
       </div>
 
+      <div className="mt-8">
+        {columnCards.map((card) => (
+          <Card cardData={card} />
+        ))}
+      </div>
+
       <Modal open={modalAddCardIsOpen}>
         <ModalCardAdd changeModalAddCardState={changeModalAddCardState} columnId={columnData.id} />
       </Modal>
@@ -81,12 +79,6 @@ export default function Column({ columnData }) {
           columnData={columnData}
         />
       </Modal>
-
-      <div className="mt-8">
-        {columnCards.map((card) => (
-          <Card cardData={card} deleteCard={deleteCard} />
-        ))}
-      </div>
     </div>
   );
 }
