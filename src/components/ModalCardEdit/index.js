@@ -1,31 +1,33 @@
 import { useContext, useState } from 'react';
 import { ColumnContext } from 'App';
 
-export default function ModalColumnAdd({ changeModalCreateColumnState }) {
-  const [columnName, setColumnName] = useState('');
+export default function ModalCardAdd({ changeModalAddCardState, columnId }) {
+  const [cardName, setCardName] = useState('');
   const columnContext = useContext(ColumnContext);
 
-  const changeColumnName = (e) => {
-    setColumnName(e.target.value);
+  const changeCardName = (e) => {
+    setCardName(e.target.value);
   };
 
   const saveColumn = () => {
     columnContext.dataDispatch({
-      type: 'columnAdd',
+      type: 'cardAdd',
       data: {
         id: Date.now(),
-        name: columnName,
+        column: columnId,
+        name: cardName,
+        date: Date.now(),
       },
     });
-    setColumnName('');
-    changeModalCreateColumnState(false);
+    setCardName('');
+    changeModalAddCardState(false);
   };
 
   return (
-    <div className="px-6 py-8 text-gray-900 relative">
+    <div className="relative px-6 py-8 text-gray-900">
       <div
         className="absolute top-2 right-2 cursor-pointer"
-        onClick={() => changeModalCreateColumnState(false)}
+        onClick={() => changeModalAddCardState(false)}
       >
         <svg
           className="fill-current"
@@ -41,7 +43,7 @@ export default function ModalColumnAdd({ changeModalCreateColumnState }) {
 
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-          Column Name
+          Card Name
         </label>
         <div className="mt-1">
           <input
@@ -49,8 +51,8 @@ export default function ModalColumnAdd({ changeModalCreateColumnState }) {
             id="name"
             name="name"
             type="text"
-            value={columnName}
-            onChange={changeColumnName}
+            value={cardName}
+            onChange={changeCardName}
           />
         </div>
       </div>
@@ -61,7 +63,7 @@ export default function ModalColumnAdd({ changeModalCreateColumnState }) {
           type="submit"
           onClick={saveColumn}
         >
-          Save Column
+          Save Card
         </button>
       </div>
     </div>

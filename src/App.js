@@ -114,7 +114,9 @@ export default function App() {
       <div className="bg-home-bg bg-cover h-screen w-full">
         <TopBar />
 
-        <MoveCard />
+        <section className="container mx-auto">
+          <MoveCard />
+        </section>
 
         <div className="container flex mx-auto gap-x-12 mt-8">
           {data.columns.map((column) => (

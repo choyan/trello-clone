@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ac9148b-5611-42bc-aa32-1c6bc4f1b1c4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ModalCardEdit/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Column/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Column/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModalColumnAdd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalColumnAdd/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MoveCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MoveCard/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +75,7 @@
       <workItem from="1606910033750" duration="14000" />
       <workItem from="1622091329720" duration="2642000" />
       <workItem from="1622179240533" duration="2287000" />
-      <workItem from="1627285797057" duration="34983000" />
+      <workItem from="1627285797057" duration="35967000" />
     </task>
     <servers />
   </component>
