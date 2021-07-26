@@ -1,12 +1,11 @@
 import { ColumnContext } from '../../App';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 export default function MoveCard() {
   const columnContext = useContext(ColumnContext);
 
   const changeColumn = (e) => {
     const selectedCard = columnContext.data.selectedCard;
-    console.log(selectedCard);
     columnContext.dataDispatch({
       type: 'cardEdit',
       data: {
