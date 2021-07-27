@@ -1,23 +1,21 @@
-# React Tailwind Starter
-This packaged is bootstrapped with 
+# MyHammer Front-end Challenge
+This package is bootstrapped with 
  - Create React App
  - TailwindCSS
- - React Router
- - Axios
  - Prettier
- - Zustand
  - Husky
- - React Hook Form
- - Yup
 
 # Installation
 Follow the simple instruction
 ```
-git clone http://gitlab.makdos.biz/makdos/react-tailwind-starter.git
+git clone https://github.com/choyan/myhammer-challenge
 yarn
 ```
 
-
-## Extra Note
-Create React App doesn't let you override the PostCSS configuration natively, we also need to install CRACO to be able to configure Tailwind. (Note from Tailwind Doc)
-
+# Future Work
+- Currently, the data is totally volatile and saved within the application state. So, after every refresh data is gone. We can save the data in the localstorage for more persistence.
+- Of course, the interface isn't up to the mark. It can be much more usable if we could use some menu dropdown, so that card view doesn't look much cluttered.
+- Due to the time limitation, I didn't implement any drag-and-drop feature here. It would be much more usable when we apply that functionality.
+- Besides that the cards should be sortable within the column also. 
+- Trello board accepts many different kind of data entry. I just implemented a simple text input and saved the data.
+- Even after the card is deleted, the component for moving the card across different columns is still visible. It's an unwanted bug, which needs a fix. 
