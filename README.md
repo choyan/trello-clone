@@ -1,4 +1,4 @@
-# MyHammer Front-end Challenge
+# Simple Trello Clone
 This package is bootstrapped with 
  - Create React App
  - TailwindCSS
